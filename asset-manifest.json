@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/NewSmallMall/static/css/main.0b2e6826.css",
-    "main.js": "/NewSmallMall/static/js/main.741a386e.js",
+    "main.js": "/NewSmallMall/static/js/main.0a422b46.js",
     "static/js/453.6823dc8a.chunk.js": "/NewSmallMall/static/js/453.6823dc8a.chunk.js",
     "static/media/162712_eat17fruitandveg_316436_crop.jpg": "/NewSmallMall/static/media/162712_eat17fruitandveg_316436_crop.0d856d8a0181899fb14a.jpg",
     "static/media/CompanyLogo1.png": "/NewSmallMall/static/media/CompanyLogo1.79b0f16284aa0447e9b3.png",
     "static/media/logo.svg": "/NewSmallMall/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/NewSmallMall/index.html",
     "main.0b2e6826.css.map": "/NewSmallMall/static/css/main.0b2e6826.css.map",
-    "main.741a386e.js.map": "/NewSmallMall/static/js/main.741a386e.js.map",
+    "main.0a422b46.js.map": "/NewSmallMall/static/js/main.0a422b46.js.map",
     "453.6823dc8a.chunk.js.map": "/NewSmallMall/static/js/453.6823dc8a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0b2e6826.css",
-    "static/js/main.741a386e.js"
+    "static/js/main.0a422b46.js"
   ]
 }
