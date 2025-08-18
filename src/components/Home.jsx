@@ -30,9 +30,9 @@ function Home({ changeTheme, themeMode, navigate }) {
       >
         <Toolbar
           variant="regular"
-          sx={{ justifyContent: "space-between", px: 2 }}
+          sx={{ justifyContent: "space-between", px: 2, flexWrap: "wrap" }}
         >
-          <Stack direction="row" spacing={2} sx={{ alignItems: "center" }}>
+          <Stack direction="row" spacing={2} sx={{ alignItems: "center", flexWrap:'wrap' }}>
             <Typography variant="h5" fontWeight={800}>
               DHMall
             </Typography>
