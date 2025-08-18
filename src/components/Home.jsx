@@ -25,7 +25,7 @@ function Home({ changeTheme, themeMode, navigate }) {
           bgcolor: "black",
           zIndex: (theme) => theme.zIndex.drawer + 1,
           overflow: "visible",
-          boxShadow: "0 30px 60px black",
+          boxShadow: "0 6px 12px black",
         }}
       >
         <Toolbar
