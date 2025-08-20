@@ -5,9 +5,10 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Product from "./components/Product";
 import Cart from "./components/Cart";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { createTheme } from "@mui/material";
 import { ThemeProvider, CssBaseline } from "@mui/material";
+import axios from "axios";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -16,13 +17,21 @@ function App() {
     setMode(m);
   };
 
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://fakestoreapi.com/products")
+      .then((res) => setProducts(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Routes>
         <Route
           path="/"
-          element={<Home changeTheme={switchTheme} themeMode={mode} />}
+          element={<Home changeTheme={switchTheme} themeMode={mode} products ={products}/>}
         />
         <Route path="/products/:id" element={<Product />} />
         <Route path="/login" element={<Login />} />

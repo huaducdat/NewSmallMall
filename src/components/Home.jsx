@@ -15,10 +15,12 @@ import { Link as MuiLink, Container } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import Hero from "./Hero";
 import heroImg from "../MyImgs/162712_eat17fruitandveg_316436_crop.jpg";
+import ProductsList from "./ProductsList";
+import Foot from "./Foot";
 
-function Home({ changeTheme, themeMode, navigate }) {
+function Home({ changeTheme, themeMode, navigate, products }) {
   return (
-    <Box>
+    <Box sx={{bgcolor: (theme) => theme.palette.mode === 'light'? '#d6d6d6ff': '#141414ff'}}>
       <AppBar
         position="relative"
         sx={{
@@ -32,7 +34,11 @@ function Home({ changeTheme, themeMode, navigate }) {
           variant="regular"
           sx={{ justifyContent: "space-between", px: 2, flexWrap: "wrap" }}
         >
-          <Stack direction="row" spacing={2} sx={{ alignItems: "center", flexWrap:'wrap' }}>
+          <Stack
+            direction="row"
+            spacing={2}
+            sx={{ alignItems: "center", flexWrap: "wrap" }}
+          >
             <Typography variant="h5" fontWeight={800}>
               DHMall
             </Typography>
@@ -97,9 +103,16 @@ function Home({ changeTheme, themeMode, navigate }) {
             <MuiLink
               underline="hover"
               color="primary"
-              to="#products"
-              component={RouterLink}
               variant="body2"
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById("products");
+                if (el)
+                  el.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
+              sx={{
+                cursor: "pointer",
+              }}
             >
               Products
             </MuiLink>
@@ -124,6 +137,8 @@ function Home({ changeTheme, themeMode, navigate }) {
         onPrimary={() => navigate("/products")}
         onSecondary={() => navigate("/login")}
       />
+      <ProductsList id="products" listItems={products} />
+      <Foot />
     </Box>
   );
 }
