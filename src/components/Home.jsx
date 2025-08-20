@@ -20,7 +20,12 @@ import Foot from "./Foot";
 
 function Home({ changeTheme, themeMode, navigate, products }) {
   return (
-    <Box sx={{bgcolor: (theme) => theme.palette.mode === 'light'? '#d6d6d6ff': '#141414ff'}}>
+    <Box
+      sx={{
+        bgcolor: (theme) =>
+          theme.palette.mode === "light" ? "#d6d6d6ff" : "#141414ff",
+      }}
+    >
       <AppBar
         position="relative"
         sx={{
@@ -65,6 +70,9 @@ function Home({ changeTheme, themeMode, navigate, products }) {
               color="white"
               fontSize={18}
               fontWeight={700}
+              sx={{
+                transform: "translateX(-10%)",
+              }}
             >
               The Market you want, the products that you need.
             </Typography>
@@ -73,7 +81,13 @@ function Home({ changeTheme, themeMode, navigate, products }) {
             <Button
               variant="outlined"
               color="primary"
-              sx={{ fontWeight: "bold" }}
+              sx={{
+                fontWeight: "bold",
+                "&:hover": {
+                  boxShadow: "0 0px 15px rgba(87, 174, 255, 0.7)",     
+                  borderColor:"rgba(199, 249, 255, 1)"           
+                },
+              }}
             >
               Login
             </Button>
@@ -129,7 +143,7 @@ function Home({ changeTheme, themeMode, navigate, products }) {
         </Toolbar>
       </AppBar>
       <Hero
-        title="DHMall buy smart."
+        title="DHMall buy Smart."
         subtitle="selected products, smooth experience, flexible payment."
         primaryText="Explore now"
         secondaryText="Login"
