@@ -50,7 +50,7 @@ function Foot() {
           }}
         >
           <HomeIcon />
-          About Us (Any Issues, please go here to get cantact in detail)
+          About Us (Any Issues, please go here to get contact in detail)
         </MuiLink>
       </Stack>
     </Paper>
