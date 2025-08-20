@@ -12,13 +12,18 @@ import {
 import logoW from "../MyImgs/CompanyLogo1.png";
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 import { Link as MuiLink, Container } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import Hero from "./Hero";
 import heroImg from "../MyImgs/162712_eat17fruitandveg_316436_crop.jpg";
 import ProductsList from "./ProductsList";
 import Foot from "./Foot";
+import { AccountCircle } from "@mui/icons-material";
+import AccountMenu from "./AccountMenu";
+import { HashLink } from "react-router-hash-link";
 
-function Home({ changeTheme, themeMode, navigate, products }) {
+function Home({ changeTheme, themeMode, products, log, setLog }) {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -78,19 +83,25 @@ function Home({ changeTheme, themeMode, navigate, products }) {
             </Typography>
           </Stack>
           <Stack>
-            <Button
-              variant="outlined"
-              color="primary"
-              sx={{
-                fontWeight: "bold",
-                "&:hover": {
-                  boxShadow: "0 0px 15px rgba(87, 174, 255, 0.7)",     
-                  borderColor:"rgba(199, 249, 255, 1)"           
-                },
-              }}
-            >
-              Login
-            </Button>
+            {log ? (
+              <AccountMenu onLogout={() => setLog(false)} />
+            ) : (
+              <Button
+                component={RouterLink}
+                to="/login"
+                variant="outlined"
+                color="primary"
+                sx={{
+                  fontWeight: "bold",
+                  "&:hover": {
+                    boxShadow: "0 0px 15px rgba(87, 174, 255, 0.7)",
+                    borderColor: "rgba(199, 249, 255, 1)",
+                  },
+                }}
+              >
+                Login
+              </Button>
+            )}
           </Stack>
         </Toolbar>
         <Divider variant="middle" sx={{ borderColor: "#363636ff" }} />
@@ -144,11 +155,11 @@ function Home({ changeTheme, themeMode, navigate, products }) {
       </AppBar>
       <Hero
         title="DHMall buy Smart."
-        subtitle="selected products, smooth experience, flexible payment."
+        subtitle="Selected products, smooth experience, flexible payment."
         primaryText="Explore now"
         secondaryText="Login"
         bgImage={heroImg}
-        onPrimary={() => navigate("/products")}
+        // onPrimary={{}}
         onSecondary={() => navigate("/login")}
       />
       <ProductsList id="products" listItems={products} />

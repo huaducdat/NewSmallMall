@@ -11,6 +11,38 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import axios from "axios";
 
 function App() {
+  const [cart, setCart] = useState(() => {
+    try{
+return JSON.parse(localStorage.getItem('cart')) || [];
+    }catch{
+      return[];
+    }
+  });
+
+const addToCart= (item) => {
+  setCart(prev => {
+    const idx = prev.findIndex(i => i.id === item.id)
+    if(idx >= 0)
+    {
+      const clone = [...prev];
+      clone[idx] = {...clone[idx], qty: clone[idx].qty  + (item.qty ||  1) };
+      return clone;
+    }
+    return  [...prev, {...item, qty:item.qty || 1}];
+  })
+};
+
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart])
+
+
+  const [loging, setLoging] = useState(false);
+  const setLogin = (status) => {
+    setLoging(status);
+  };
+
   const [mode, setMode] = useState("light");
   const theme = useMemo(() => createTheme({ palette: { mode } }), [mode]);
   const switchTheme = (m) => {
@@ -31,10 +63,18 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Home changeTheme={switchTheme} themeMode={mode} products ={products}/>}
+          element={
+            <Home
+              changeTheme={switchTheme}
+              themeMode={mode}
+              products={products}
+              log={loging}
+              setLog={setLogin}
+            />
+          }
         />
         <Route path="/products/:id" element={<Product />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setLog={setLogin} />} />
         <Route path="/Cart" element={<Cart />} />
       </Routes>
     </ThemeProvider>

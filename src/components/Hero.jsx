@@ -1,10 +1,11 @@
 import { Box, Container, Stack, Typography, Button } from "@mui/material";
+import { HashLink } from "react-router-hash-link";
 
 export default function Hero({
-  title = "Mua sắm chất lượng, giá hợp lý",
-  subtitle = "Hàng chọn lọc, dịch vụ nhanh, trải nghiệm mượt.",
-  primaryText = "Xem sản phẩm",
-  secondaryText = "Đăng nhập",
+  title = "Buy Smart",
+  subtitle = "Selected, fast  service, smooth experience.",
+  primaryText = "Explore now",
+  secondaryText = "Sign-in",
   onPrimary,
   onSecondary,
   bgImage, // optional: url ảnh nền
@@ -65,14 +66,17 @@ export default function Hero({
             <Button
               variant="contained"
               size="large"
-              // onClick={onPrimary}
+              //  onClick={onPrimary}
+              component={HashLink}
+              smooth
+              to="/#products"
             >
               {primaryText}
             </Button>
             <Button
               variant="outlined"
               size="large"
-              // onClick={onSecondary}
+              onClick={onSecondary}
               color={bgImage ? "inherit" : "primary"}
               sx={
                 bgImage

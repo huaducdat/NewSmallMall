@@ -178,7 +178,7 @@ function Product() {
             <Button sx={{ width: 200 }} variant="contained">
               Order Now
             </Button>
-            <Button sx={{ width: 200 }} variant="outlined">
+            <Button sx={{ width: 200 }} variant="outlined" onClick={() => alert('Added')}>
               Add to Cart
             </Button>
           </Stack>
