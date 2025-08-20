@@ -74,7 +74,7 @@ function Product() {
         </Toolbar>
         <Divider />
         <Toolbar variant="dense" sx={{ justifyContent: "center" }}>
-          <Breadcrumbs>
+          <Breadcrumbs separator="|" aria-label="breadcrumb" color='text.secondary'>
             <MuiLink
               underline="hover"
               color="text.secondary"
@@ -85,6 +85,16 @@ function Product() {
             >
               <ShoppingCartIcon />
               Your Cart
+            </MuiLink>
+            <MuiLink
+              underline="hover"
+              color="text.secondary"
+              variant="body2"
+              sx={{ display: "flex", gap: 1, alignItems: "center" }}
+              to="/"
+              component={RouterLink}
+            >
+              Home
             </MuiLink>
           </Breadcrumbs>
         </Toolbar>
@@ -178,7 +188,11 @@ function Product() {
             <Button sx={{ width: 200 }} variant="contained">
               Order Now
             </Button>
-            <Button sx={{ width: 200 }} variant="outlined" onClick={() => alert('Added')}>
+            <Button
+              sx={{ width: 200 }}
+              variant="outlined"
+              onClick={() => alert("Added")}
+            >
               Add to Cart
             </Button>
           </Stack>
